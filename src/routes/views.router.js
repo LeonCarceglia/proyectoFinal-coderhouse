@@ -32,5 +32,7 @@ export default class ViewsRouter extends CustomRouter {
         this.get("/yourCart", ["USER", "PREMIUM", "ADMIN"], viewsController.userCart)
 
         this.get("/payment/:ticketCode", ["USER", "PREMIUM", "ADMIN"], viewsController.payment)
+
+        this.get("/paymentSucces", ["USER", "PREMIUM", "ADMIN"], viewsController.paymentSucces)
     }
 }

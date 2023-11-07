@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             const data = await response.json()
             const ticketCode = data.data.code
-            console.log(ticketCode)
             window.location.href = `/payment/${ticketCode}`
         } catch (error) {
             throw error

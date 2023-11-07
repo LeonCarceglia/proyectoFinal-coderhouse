@@ -138,6 +138,10 @@ const payment = async (req, res) => {
     res.render('payment', ticket)
 }
 
+const paymentSucces = async (req, res) => {
+    res.render('paymentSucces')
+}
+
 export default {
     getProductsRender,
     getCart,
@@ -152,5 +156,6 @@ export default {
     newPass,
     panelUsers,
     userCart,
-    payment
+    payment,
+    paymentSucces
 }

@@ -61,16 +61,10 @@ const purchase = async (req, res) => {
 }
 
 const generateToken = async (req, res) => {
-    const card = {
-        number: req.body.cardNumber,
-        exp_month: req.body.expMonth,
-        exp_year: req.body.expYear,
-        cvc: req.body.cvc,
-    }
     const code = req.body.code
     const amount = req.body.amount
-    const token = await cartService.tokenPayment(card, amount, code)
-    res.json({ status: "ok", data: token })
+    const clientSecret = await cartService.tokenPayment(amount, code)
+    res.json({ status: "ok", data: clientSecret })
 }
 
 

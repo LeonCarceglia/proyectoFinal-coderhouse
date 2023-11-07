@@ -7,17 +7,6 @@ export default class PaymentService {
     )
   }
 
-  async createToken(cardData) {
-    try {
-      const token = await this.stripe.tokens.create({
-        card: cardData,
-      })
-      return token
-    } catch (error) {
-      throw error
-    }
-  }
-
   async createPaymentIntent(data) {
     try {
       const paymentIntent = await this.stripe.paymentIntents.create(data)

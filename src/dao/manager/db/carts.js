@@ -96,23 +96,21 @@ export default class CartsManager {
         }
     }
 
-    tokenPayment = async (card, amount, code) => {
+    tokenPayment = async (amount, code) => {
         try {
             const paymentService = new PaymentService()
-            const cardToken = await paymentService.createToken(card)
-            const paymentIntentData = {
-                amount: amount,
+                const paymentIntentData = {
+                amount: amount *100,
                 currency: 'usd',
                 metadata: {
                     ticketCode: code
-                },
-                payment_method: cardToken.id
+                }
             }
             const paymentIntent = await paymentService.createPaymentIntent(paymentIntentData)
-            return paymentIntent
-        }
-        catch (error) {
+            return paymentIntent.client_secret
+        } catch (error) {
             throw error
         }
     }
+    
 }
