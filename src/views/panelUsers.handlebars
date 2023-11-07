@@ -1,0 +1,26 @@
+<h1>List of users</h1>
+{{#if message}}
+<p style="color: green;">User successfully deleted.</p>
+{{/if}}
+<ul>
+    {{#each users}}
+    <li>
+        <strong>{{this.first_name}} {{this.last_name}}</strong>
+        - Email: {{this.email}}
+        - Role: {{this.role}}
+        <form id="modifyRoleForm-{{this._id}}" data-user-id="{{this._id}}">
+            <label for="role">Change Role:</label>
+            <select name="role" id="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="premium">Premium</option>
+            </select>
+            <button type="submit">Change</button>
+        </form>
+        <form id="deleteUserForm-{{this._id}}" data-user-id="{{this._id}}">
+            <button type="submit">Delete</button>   
+        </form>
+    </li>
+    {{/each}}
+</ul>
+<script src="/js/panelUsers.js"></script>

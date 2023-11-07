@@ -1,0 +1,2 @@
+Solucionar multer
+Solucionar pasarela de pago

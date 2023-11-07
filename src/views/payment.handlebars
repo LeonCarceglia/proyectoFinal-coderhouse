@@ -1,0 +1,21 @@
+<h1>Payment Information: {{code}}</h1>
+
+<form id="paymentForm" method="POST" action="/api/carts/generateTokenPayment">
+  <label for="cardNumber">Card Number:</label>
+  <input type="text" id="cardNumber" name="cardNumber" required>
+
+  <label for="expMonth">Expiration Month:</label>
+  <input type="text" id="expMonth" name="expMonth" required>
+
+  <label for="expYear">Expiration Year:</label>
+  <input type="text" id="expYear" name="expYear" required>
+
+  <label for="cvc">CVC:</label>
+  <input type="text" id="cvc" name="cvc" required>
+  
+  <input type="hidden" id="amount" name="amount" value="{{amount}}">
+  <input type="hidden" id="code" name="code" value="{{code}}">
+
+
+  <button type="submit">Submit</button>
+</form>
